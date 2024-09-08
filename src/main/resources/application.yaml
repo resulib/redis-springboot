@@ -3,6 +3,20 @@ server:
 
 spring:
   datasource:
-    password: root
     url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
+    password: root
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      allow-pool-suspension: true
+  jpa:
+    hibernate:
+      ddl-auto: update   # Options: validate, update, create, create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  data:
+    redis:
+      host: localhost
+      timeout: 6000ms
+      port: 6379
